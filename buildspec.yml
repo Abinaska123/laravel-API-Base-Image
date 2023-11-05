@@ -1,0 +1,48 @@
+version: 0.2
+
+run-as: Linux-user-name
+
+env:
+  shell: shell-tag
+  variables:
+    key: "value"
+    key: "value"
+  parameter-store:
+    key: "value"
+    key: "value"
+  exported-variables:
+    - variable
+    - variable
+  secrets-manager:
+    key: secret-id:json-key:version-stage:version-id
+  git-credential-helper: no | yes
+
+proxy:
+  upload-artifacts: no | yes
+  logs: no | yes
+
+batch:
+  fast-fail: false | true
+  # build-list:
+  # build-matrix:
+  # build-graph:
+        
+phases:
+  install:
+    on-failure: ABORT
+    runtime-versions:
+      php: 8.2
+    commands:
+      - echo 'install'
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - echo 'pre_build'
+  build:
+    on-failure: ABORT
+    commands:
+      - echo 'build'
+  post_build:
+    on-failure: ABORT
+    commands:
+      - echo 'post_build'
